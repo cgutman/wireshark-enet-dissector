@@ -271,6 +271,7 @@ function p_enet.dissector(buf, pkt, root)
         subtree:add(pf_sendunrel, buf(0))
         
         subtree:add(pf_sendunrel_unrelseqnum, buf(i, 2), buf(i, 2):uint())
+        i = i + 2
         datalen = buf(i, 2):uint()
         subtree:add(pf_sendunrel_datalen, buf(i, 2), buf(i, 2):uint())
         i = i + 2
