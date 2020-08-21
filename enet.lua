@@ -92,7 +92,7 @@ pf_sendfrag_fragcount = ProtoField.uint32("enet.sendfrag.fragcount", "Fragment C
 pf_sendfrag_fragnum = ProtoField.uint32("enet.sendfrag.fragnum", "Fragment Number", base.HEX)
 pf_sendfrag_totallen = ProtoField.uint32("enet.sendfrag.totallen", "Total Length", base.HEX)
 pf_sendfrag_fragoff = ProtoField.uint32("enet.sendfrag.fragoff", "Fragment Offset", base.HEX)
-pf_sendfraq_data = ProtoField.bytes("enet.sendfrag.data", "Data")
+pf_sendfrag_data = ProtoField.bytes("enet.sendfrag.data", "Data")
 
 p_enet = Proto ("enet", "ENet")
 p_enet.fields = {
