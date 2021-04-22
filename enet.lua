@@ -170,9 +170,14 @@ function p_enet.dissector(buf, pkt, root)
     
     -- Read the protocol header
     subtree:add(pf_protoheader_peerid, buf(i, 2), buf(i, 2):uint())
+    includes_senttime = bit.band(buf(i, 2):uint(), 0x8000)
     i = i + 2
-    subtree:add(pf_protoheader_senttime, buf(i, 2), buf(i, 2):uint())
-    i = i + 2
+    
+    -- Check if protocol header includes senttime
+    if includes_senttime ~= 0 then
+        subtree:add(pf_protoheader_senttime, buf(i, 2), buf(i, 2):uint())
+        i = i + 2
+    end
     
     -- Read the command header
     command = buf(i, 1):uint()
